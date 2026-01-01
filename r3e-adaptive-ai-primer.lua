@@ -439,28 +439,28 @@ local function parseAdaptive(filename, database, playertimes)
   <latestVersion type="uint32">0</latestVersion>
   <aiAdaptationData>
     <!-- Index:0 -->
-    <key type="int32">263</key>
+    <layoutId type="int32">263</layoutId>
     <value>
       <!-- Index:0 -->
-      <key type="int32">253</key>
-      <custom>
+      <carClassId type="int32">253</carClassId>
+      <sampledData>
         <playerBestLapTimes>
           <!-- Index:0 -->
-          <custom type="float32">108.74433136</custom>
+          <lapTime type="float32">108.74433136</lapTime>
           <!-- Index:1 -->
-          <custom type="float32">115.84943390</custom>
+          <lapTime type="float32">115.84943390</lapTime>
           <!-- Index:2 -->
-          <custom type="float32">123.27467346</custom>
+          <lapTime type="float32">123.27467346</lapTime>
         </playerBestLapTimes>
         <aiSkillVsLapTimes>
           <!-- Index:0 -->
-          <key type="uint32">100</key>
-          <custom>
+          <aiSkill type="uint32">100</aiSkill>
+          <aiData>
             <averagedLapTime type="float32">108.44427490</averagedLapTime>
             <numberOfSampledRaces type="uint32">2</numberOfSampledRaces>
-          </custom>
+          </aiData>
         </aiSkillVsLapTimes>
-      </custom>
+      </sampledData>
       ...
     </value>
   </aiAdaptationData>
@@ -573,21 +573,21 @@ local function clearAdaptive(filename)
   f:close()
 --[[
           <!-- Index:0 -->
-          <key type="uint32">97</key>
-          <custom>
+          <aiSkill type="uint32">97</aiSkill>
+          <aiData>
             <averagedLapTime type="float32">92.4595</averagedLapTime>
             <numberOfSampledRaces type="uint32">0</numberOfSampledRaces>
-          </custom>
+          </aiData>
 ]]
   
   
   local xml,num = xml:gsub(
       '[^\n]+<!%-%- Index:%d+ %-%->%s+'..
-      '<key type="uint32">%d+</key>%s+'..
-      '<custom>%s+'..
+      '<aiSkill type="uint32">%d+</aiSkill>%s+'..
+      '<aiData>%s+'..
       '  <averagedLapTime type="float32">%d?%d%d%.%d%d</averagedLapTime>%s+'..
       '  <numberOfSampledRaces type="uint32">%d+</numberOfSampledRaces>%s+'..
-      '</custom>\n' 
+      '</aiData>\n' 
     , function(str)
       --printlog(str)
       return ""
@@ -608,21 +608,21 @@ local function clearAdaptiveAll(filename)
   f:close()
 --[[
           <!-- Index:0 -->
-          <key type="uint32">97</key>
-          <custom>
-            <custom type="float32">92.45950005</custom>
-            <custom type="uint32">0</custom>
-          </custom>
+          <aiSkill type="uint32">97</aiSkill>
+          <aiData>
+            <averagedLapTime type="float32">92.45950005</averagedLapTime>
+            <numberOfSampledRaces type="uint32">0</numberOfSampledRaces>
+          </aiData>
 ]]
   
   
   local xml,num = xml:gsub(
       '[^\n]+<!%-%- Index:%d+ %-%->%s+'..
-      '<key type="uint32">%d+</key>%s+'..
-      '<custom>%s+'..
+      '<aiSkill type="uint32">%d+</aiSkill>%s+'..
+      '<aiData>%s+'..
       '  <averagedLapTime type="float32">%d+%.%d+</averagedLapTime>%s+'..
       '  <numberOfSampledRaces type="uint32">%d+</numberOfSampledRaces>%s+'..
-      '</custom>\n' 
+      '</aiData>\n' 
     , function(str)
       --printlog(str)
       return ""
@@ -643,21 +643,21 @@ local function resetAll(filename)
   f:close()
 --[[
           <!-- Index:0 -->
-          <key type="uint32">97</key>
-          <custom>
+          <aiSkill type="uint32">97</aiSkill>
+          <aiData>
             <averagedLapTime type="float32">92.45950005</averagedLapTime>
             <numberOfSampledRaces type="uint32">0</numberOfSampledRaces>
-          </custom>
+          </aiData>
 ]]
   
   
   local xml,num = xml:gsub(
       '([^\n]+<!%-%- Index:%d+ %-%->%s+'..
-      '<key type="uint32">%d+</key>%s+'..
-      '<custom>%s+'..
+      '<aiSkill type="uint32">%d+</aiSkill>%s+'..
+      '<aiData>%s+'..
       '  <averagedLapTime type="float32">%d+%.%d+</averagedLapTime>%s+'..
       '  <numberOfSampledRaces type="uint32">)(%d+)(</numberOfSampledRaces>%s+'..
-      '</custom>\n)' 
+      '</aiData>\n)' 
     , function(s,m,e)
       
       return s.."0"..e
@@ -688,28 +688,28 @@ local function modifyAdaptive(filename, processed, trackid, classid, aifrom, ait
   <latestVersion type="uint32">0</latestVersion>
   <aiAdaptationData>
     <!-- Index:0 -->
-    <key type="int32">263</key>
+    <layoutId type="int32">263</layoutId>
     <value>
       <!-- Index:0 -->
-      <key type="int32">253</key>
-      <custom>
+      <carClassId type="int32">253</carClassId>
+      <sampledData>
         <playerBestLapTimes>
           <!-- Index:0 -->
-          <custom type="float32">108.74433136</custom>
+          <lapTime type="float32">108.74433136</lapTime>
           <!-- Index:1 -->
-          <custom type="float32">115.84943390</custom>
+          <lapTime type="float32">115.84943390</lapTime>
           <!-- Index:2 -->
-          <custom type="float32">123.27467346</custom>
+          <lapTime type="float32">123.27467346</lapTime>
         </playerBestLapTimes>
         <aiSkillVsLapTimes>
           <!-- Index:0 -->
-          <key type="uint32">100</key>
-          <custom>
+          <aiSkill type="uint32">100</aiSkill>
+          <aiData>
             <averagedLapTime type="float32">108.44427490</averagedLapTime>
             <numberOfSampledRaces type="uint32">2</numberOfSampledRaces>
-          </custom>
+          </aiData>
         </aiSkillVsLapTimes>
-      </custom>
+      </sampledData>
       ...
     </value>
   </aiAdaptationData>
@@ -722,10 +722,10 @@ local function modifyAdaptive(filename, processed, trackid, classid, aifrom, ait
   
   local found = false
   
-  local xmlnew = xml:gsub('(<key type="int32">'..trackid..'</key>%s*<value>)(.-)(</value>)', 
+  local xmlnew = xml:gsub('(<layoutId type="int32">'..trackid..'</layoutId>%s*<value>)(.-)(</value>)', 
   function(tpre,tracks,tpost)
     printlog("found track", trackid)
-    local tracks = tracks:gsub('(<key type="int32">'..classid..'</key>\n%s*<custom>\n)(.-)(\n      </custom>)',
+    local tracks = tracks:gsub('(<carClassId type="int32">'..classid..'</carClassId>\n%s*<sampledData>\n)(.-)(\n      </sampledData>)',
     function(cpre,class,cpost)
       local class = class:gsub('(</playerBestLapTimes>%s*<aiSkillVsLapTimes>)(.*)(\n%s*</aiSkillVsLapTimes>)$',
       function(apre,aold,apost)
@@ -740,11 +740,11 @@ local function modifyAdaptive(filename, processed, trackid, classid, aifrom, ait
           if (num > 0) then
             anew = anew.."\n"
             anew = anew..indent..'<!-- Index:'..idx..' -->\n'
-            anew = anew..indent..'<key type="uint32">'..ai..'</key>\n'
-            anew = anew..indent..'<custom>\n'
+            anew = anew..indent..'<aiSkill type="uint32">'..ai..'</aiSkill>\n'
+            anew = anew..indent..'<aiData>\n'
             anew = anew..indent..'  <averagedLapTime type="float32">'..outputTime(time)..'</averagedLapTime>\n'
             anew = anew..indent..'  <numberOfSampledRaces type="uint32">0</numberOfSampledRaces>\n'
-            anew = anew..indent..'</custom>'
+            anew = anew..indent..'</aiData>'
             idx = idx + 1
           end
         end
